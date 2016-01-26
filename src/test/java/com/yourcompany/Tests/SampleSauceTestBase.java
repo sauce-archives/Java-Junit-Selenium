@@ -125,6 +125,16 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
 
         // windows 7, Chrome 41
         browsers.add(new String[]{"Windows 7", "41", "chrome", null, null});
+        // windows 7, Chrome 41
+        browsers.add(new String[]{"Windows 7", "42", "chrome", null, null});
+        // windows 7, Chrome 41
+        browsers.add(new String[]{"Windows 7", "43", "chrome", null, null});
+        // windows 7, Chrome 41
+        browsers.add(new String[]{"Windows 7", "44", "chrome", null, null});
+        // windows 7, Chrome 41
+        browsers.add(new String[]{"Windows 7", "45", "chrome", null, null});
+        // windows 7, Chrome 41
+        browsers.add(new String[]{"Windows 7", "46", "chrome", null, null});
 
         // windows xp, IE 8
         browsers.add(new String[]{"Windows XP", "8", "internet explorer", null, null});
@@ -149,6 +159,19 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
 
         // Linux, Firefox 37
         browsers.add(new String[]{"Linux", "37", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "38", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "39", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "40", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "41", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "42", "firefox", null, null});
+        // Linux, Firefox 37
+        browsers.add(new String[]{"Linux", "43", "firefox", null, null});
+
 
         return browsers;
     }

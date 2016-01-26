@@ -78,4 +78,557 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         assertEquals(commentInputText, page.getCommentText());
 
     }
+
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest1() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest1() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest2() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest2() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest3() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest3() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest4() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest4() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest5() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest5() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest6() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest6() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest7() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest7() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest8() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest8() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest9() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest9() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+    /**
+     * Runs a simple test verifying if the email input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    public void verifyEmailInputTest10() throws InvalidElementStateException {
+        String emailInputText = "abc@gmail.com";
+
+        // Navigate to the page
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // get page object
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterEmailText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterEmailText(emailInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(page.getEmailText(), emailInputText);
+
+    }
+
+    /**
+     * Runs a simple test verifying if the comment input is functional.
+     * @throws InvalidElementStateException
+     */
+    @Test
+    @Retry
+    public void verifyCommentInputTest10() throws InvalidElementStateException {
+        String commentInputText = UUID.randomUUID().toString();
+
+        driver.get("https://saucelabs.com/test/guinea-pig");
+
+        // Navigate to the page
+        GuineaPigPage page = GuineaPigPage.getPage(driver);
+
+        /*
+         enterCommentText page is an exposed "service",
+             which interacts with the email input field element by sending text to it.
+        */
+        page.enterCommentText(commentInputText);
+
+        /*
+         Assertions should be part of test and not part of Page object.
+         Each test should be verifying one piece of functionality (atomic testing)
+        */
+        assertEquals(commentInputText, page.getCommentText());
+
+    }
+
+
 }
