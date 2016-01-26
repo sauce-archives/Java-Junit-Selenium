@@ -20,11 +20,12 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
     public SampleSauceTextInputTest(String os,
                                     String version, String browser, String deviceName, String deviceOrientation) {
-            super(os, version, browser, deviceName, deviceOrientation);
+        super(os, version, browser, deviceName, deviceOrientation);
     }
 
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -47,12 +48,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -75,12 +83,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
+
 
     }
 
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -103,12 +118,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -131,11 +153,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -158,12 +188,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -186,11 +223,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -213,12 +258,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -241,11 +293,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -268,12 +328,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -296,11 +363,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -323,12 +398,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -351,11 +433,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -378,12 +468,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -406,11 +503,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -433,12 +538,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -461,11 +573,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -488,12 +608,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -516,11 +643,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -543,12 +678,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -571,11 +713,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
 
+
     }
+
     /**
      * Runs a simple test verifying if the email input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -598,12 +748,19 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(page.getEmailText(), emailInputText);
+
 
     }
 
     /**
      * Runs a simple test verifying if the comment input is functional.
+     *
      * @throws InvalidElementStateException
      */
     @Test
@@ -626,7 +783,13 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          Assertions should be part of test and not part of Page object.
          Each test should be verifying one piece of functionality (atomic testing)
         */
+        try {
+            Thread.sleep((long) (Math.random() * 2000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         assertEquals(commentInputText, page.getCommentText());
+
 
     }
 
