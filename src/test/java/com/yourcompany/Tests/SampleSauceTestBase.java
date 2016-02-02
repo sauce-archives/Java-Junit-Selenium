@@ -123,33 +123,48 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
 
-        // windows 7, Chrome 41
         browsers.add(new String[]{"Windows 7", "41", "chrome", null, null});
-
-        // windows xp, IE 8
-        browsers.add(new String[]{"Windows XP", "8", "internet explorer", null, null});
-
-        // windows 7, IE 9
-        browsers.add(new String[]{"Windows 7", "9", "internet explorer", null, null});
-
-        // windows 8, IE 10
-        browsers.add(new String[]{"Windows 8", "10", "internet explorer", null, null});
-
-        // windows 8.1, IE 11
-        browsers.add(new String[]{"Windows 8.1", "11", "internet explorer", null, null});
-
-        // OS X 10.8, Safari 6
-        browsers.add(new String[]{"OSX 10.8", "6", "safari", null, null});
-
-        // OS X 10.9, Safari 7
-        browsers.add(new String[]{"OSX 10.9", "7", "safari", null, null});
-
-        // OS X 10.10, Safari 7
-        browsers.add(new String[]{"OSX 10.10", "8", "safari", null, null});
-
-        // Linux, Firefox 37
-        browsers.add(new String[]{"Linux", "37", "firefox", null, null});
-
+        browsers.add(new String[]{"Windows 7", "42", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "43", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "44", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "45", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "46", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "47", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "41", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "42", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "43", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "44", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "45", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "46", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.10", "47", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "41", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "42", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "43", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "44", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "45", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "46", "chrome", null, null});
+        browsers.add(new String[]{"Linux", "47", "chrome", null, null});
+        browsers.add(new String[]{"Windows 7", "38", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "39", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "40", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "41", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "42", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "43", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "44", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "38", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "39", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "40", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "41", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "42", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "43", "firefox", null, null});
+        browsers.add(new String[]{"OS X 10.10", "44", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "38", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "39", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "40", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "41", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "42", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "43", "firefox", null, null});
+        browsers.add(new String[]{"Linux", "44", "firefox", null, null});
         return browsers;
     }
 
