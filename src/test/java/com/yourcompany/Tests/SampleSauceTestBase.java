@@ -123,6 +123,13 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
 
+        browsers.add(new String[]{"Windows 10", "41", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "42", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "43", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "44", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "45", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "46", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "47", "chrome", null, null});
         browsers.add(new String[]{"Windows 7", "41", "chrome", null, null});
         browsers.add(new String[]{"Windows 7", "42", "chrome", null, null});
         browsers.add(new String[]{"Windows 7", "43", "chrome", null, null});
@@ -130,6 +137,13 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
         browsers.add(new String[]{"Windows 7", "45", "chrome", null, null});
         browsers.add(new String[]{"Windows 7", "46", "chrome", null, null});
         browsers.add(new String[]{"Windows 7", "47", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "41", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "42", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "43", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "44", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "45", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "46", "chrome", null, null});
+        browsers.add(new String[]{"Windows XP", "47", "chrome", null, null});
         browsers.add(new String[]{"OS X 10.10", "41", "chrome", null, null});
         browsers.add(new String[]{"OS X 10.10", "42", "chrome", null, null});
         browsers.add(new String[]{"OS X 10.10", "43", "chrome", null, null});
