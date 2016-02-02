@@ -2,6 +2,7 @@ package com.yourcompany.Tests;
 
 import com.yourcompany.Pages.GuineaPigPage;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.yourcompany.Pages.GuineaPigPage;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 /**
  * Created by mehmetgerceker on 12/7/15.
  */
-
+@Ignore
 public class SampleSauceCheckBoxTest extends SampleSauceTestBase {
 
     public SampleSauceCheckBoxTest(String os,

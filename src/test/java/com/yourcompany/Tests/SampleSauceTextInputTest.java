@@ -4,6 +4,7 @@ package com.yourcompany.Tests;
 import com.yourcompany.Pages.*;
 import com.yourcompany.TestRules.Retry;
 import com.yourcompany.Tests.SampleSauceTestBase;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.InvalidElementStateException;
 
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 /**
  * Created by mehmetgerceker on 12/7/15.
  */
-
+@Ignore
 public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
     public SampleSauceTextInputTest(String os,
