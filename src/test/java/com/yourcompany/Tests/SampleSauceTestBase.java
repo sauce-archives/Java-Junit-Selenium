@@ -62,8 +62,8 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     /**
      * Test decorated with @Retry will be run 3 times in case they fail using this rule.
      */
-    @Rule
-    public RetryRule rule = new RetryRule(3);
+    //@Rule
+    //public RetryRule rule = new RetryRule(3);
 
     /**
      * Represents the browser to be used as part of the test run.
@@ -93,7 +93,7 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     /**
      * The {@link WebDriver} instance which is used to perform browser interactions with.
      */
-    protected WebDriver driver;
+    protected ThreadLocal<WebDriver> driver;
 
     /**
      * Constructs a new instance of the test.  The constructor requires three string parameters, which represent the operating
@@ -204,11 +204,12 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
             capabilities.setCapability("build", buildTag);
         }
 
-        this.driver = new RemoteWebDriver(
+        this.driver = new ThreadLocal<WebDriver>();
+        this.driver.set(new RemoteWebDriver(
                 new URL("http://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
-                capabilities);
+                capabilities));
 
-        this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
+        this.sessionId = (((RemoteWebDriver) driver.get()).getSessionId()).toString();
 
         String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s", this.sessionId, methodName);
         System.out.println(message);
@@ -216,7 +217,15 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
+        if(driver == null){
+            System.out.println("WTF");
+        } else if (driver.get() == null){
+            System.out.println("NULL");
+        } else {
+            System.out.println("XXXX");
+            driver.get().quit();
+        }
+
     }
 
     /**

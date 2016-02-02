@@ -33,10 +33,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -64,14 +64,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -103,10 +103,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -134,14 +134,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest1() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -173,10 +173,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -204,14 +204,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest2() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -243,10 +243,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -274,14 +274,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest3() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -313,10 +313,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -344,14 +344,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest4() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -383,10 +383,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -414,14 +414,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest5() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -453,10 +453,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -484,14 +484,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest6() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -523,10 +523,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -554,14 +554,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest7() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -593,10 +593,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -624,14 +624,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest8() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -663,10 +663,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -694,14 +694,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest9() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
@@ -733,10 +733,10 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
         String emailInputText = "abc@gmail.com";
 
         // Navigate to the page
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // get page object
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterEmailText page is an exposed "service",
@@ -764,14 +764,14 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
      * @throws InvalidElementStateException
      */
     @Test
-    @Retry
+    //@Retry
     public void verifyCommentInputTest10() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
 
-        driver.get("https://saucelabs.com/test/guinea-pig");
+        driver.get().get("https://saucelabs.com/test/guinea-pig");
 
         // Navigate to the page
-        GuineaPigPage page = GuineaPigPage.getPage(driver);
+        GuineaPigPage page = GuineaPigPage.getPage(driver.get());
 
         /*
          enterCommentText page is an exposed "service",
