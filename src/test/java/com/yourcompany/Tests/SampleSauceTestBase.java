@@ -169,7 +169,7 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         if (browser != null) capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
-        if (version != null) capabilities.setCapability(CapabilityType.VERSION, version)
+        if (version != null) capabilities.setCapability(CapabilityType.VERSION, version);
         if (deviceName != null) capabilities.setCapability("deviceName", deviceName);
         if (deviceOrientation != null) capabilities.setCapability("device-orientation", deviceOrientation);
 
