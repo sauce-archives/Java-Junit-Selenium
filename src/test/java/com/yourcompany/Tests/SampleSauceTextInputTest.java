@@ -42,7 +42,7 @@ public class SampleSauceTextInputTest extends SampleSauceTestBase {
          enterEmailText page is an exposed "service",
              which interacts with the email input field element by sending text to it.
         */
-        page.enterEmailText(emailInputText);
+        page.enterEmailText(emailInputText2);
 
         /*
          Assertions should be part of test and not part of Page object.
