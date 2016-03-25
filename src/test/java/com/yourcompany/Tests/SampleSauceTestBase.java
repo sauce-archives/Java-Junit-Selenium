@@ -144,7 +144,7 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
         // OS X 10.9, Safari 7
         browsers.add(new String[]{"OSX 10.9", "7", "safari", null, null});
 
-        // OS X 10.10, Safari 7
+        // OS X 10.10, Safari 8
         browsers.add(new String[]{"OSX 10.10", "8", "safari", null, null});
 
         // Linux, Firefox 37
