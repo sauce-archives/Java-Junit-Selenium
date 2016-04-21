@@ -62,8 +62,8 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     /**
      * Test decorated with @Retry will be run 3 times in case they fail using this rule.
      */
-    @Rule
-    public RetryRule rule = new RetryRule(3);
+   @Rule
+   public RetryRule rule = new RetryRule(3);
 
     /**
      * Represents the browser to be used as part of the test run.
@@ -78,6 +78,14 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
      */
     protected String version;
     /**
+     * Represents the platform version of the mobile os to be used as part of the test run.
+     */
+    protected String platformVersion;
+    /**
+     * Represents the platform name of the mobile os to be used as part of the test run.
+     */
+    protected String platformName;
+    /**
      * Represents the deviceName of mobile device
      */
     protected String deviceName;
@@ -88,6 +96,8 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     /**
      * Instance variable which contains the Sauce Job Id.
      */
+
+
     protected String sessionId;
 
     /**
@@ -106,13 +116,15 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
      * @param deviceOrientation
      */
 
-    public SampleSauceTestBase(String os, String version, String browser, String deviceName, String deviceOrientation) {
+    public SampleSauceTestBase(String os, String version, String browser, String deviceName, String deviceOrientation, String platformVersion, String platformName) {
         super();
         this.os = os;
         this.version = version;
         this.browser = browser;
         this.deviceName = deviceName;
         this.deviceOrientation = deviceOrientation;
+        this.platformVersion = platformVersion;
+        this.platformName = platformName;
     }
 
     /**
@@ -123,37 +135,26 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
 
-        // windows 7, Chrome 41
-        browsers.add(new String[]{"Windows 7", "41", "chrome", null, null});
+        // Windows 8, IE 10
+        browsers.add(new String[]{"Windows 8", "10", "internet explorer", null, null, null, null});
 
-        // windows xp, IE 8
-        browsers.add(new String[]{"Windows XP", "8", "internet explorer", null, null});
-
-        // windows 7, IE 9
-        browsers.add(new String[]{"Windows 7", "9", "internet explorer", null, null});
-
-        // windows 8, IE 10
-        browsers.add(new String[]{"Windows 8", "10", "internet explorer", null, null});
-
-        // windows 8.1, IE 11
-        browsers.add(new String[]{"Windows 8.1", "11", "internet explorer", null, null});
+        // Windows 10, Firefox 45
+        browsers.add(new String[]{"Windows 10", "45.0", "firefox", null, null, null, null});
 
         // OS X 10.8, Safari 6
-        browsers.add(new String[]{"OSX 10.8", "6", "safari", null, null});
+        browsers.add(new String[]{"OSX 10.11", "48.0", "chrome", null, null, null, null});
 
-        // OS X 10.9, Safari 7
-        browsers.add(new String[]{"OSX 10.9", "7", "safari", null, null});
+        // OS X 10.10, Safari 8
+        browsers.add(new String[]{"OSX 10.10", "8", "safari", null, null, null, null});
 
-        // OS X 10.10, Safari 7
-        browsers.add(new String[]{"OSX 10.10", "8", "safari", null, null});
+        // Emulators/Simulators 
+        browsers.add(new String[]{"Linux", "4.4", "android", "Android Emulator", "portrait", null, null});
 
-        // Linux, Firefox 37
-        browsers.add(new String[]{"Linux", "37", "firefox", null, null});
+        browsers.add(new String[]{"Mac 10.10", "9.2", "iPhone", "iPhone 6", "portrait", null, null});
 
-        //emus
-        browsers.add(new String[]{"Linux", "4.4", "android", "Android Emulator", "portrait"});
-
-        browsers.add(new String[]{"Mac 10.10", "9.2", "iPhone", "iPhone 6", "portrait"});
+        //Real Devices
+        browsers.add(new String[]{null, null, "Safari", "iPhone 6 Device", null, "8.4", "iOS"});
+        browsers.add(new String[]{null, null, "Chrome", "Samsung Galaxy S5 Device", null, "4.4", "Android"});
 
         return browsers;
     }
@@ -174,8 +175,9 @@ public class SampleSauceTestBase implements SauceOnDemandSessionIdProvider {
         if (version != null) capabilities.setCapability(CapabilityType.VERSION, version);
         if (deviceName != null) capabilities.setCapability("deviceName", deviceName);
         if (deviceOrientation != null) capabilities.setCapability("device-orientation", deviceOrientation);
-
-        capabilities.setCapability(CapabilityType.PLATFORM, os);
+        if (platformVersion != null) capabilities.setCapability("platformVersion", platformVersion);
+        if (platformName != null) capabilities.setCapability("platformName", platformName);
+        if (os != null) capabilities.setCapability(CapabilityType.PLATFORM, os);
 
         String methodName = name.getMethodName();
         capabilities.setCapability("name", methodName);
