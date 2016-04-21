@@ -4,6 +4,7 @@ package com.yourcompany.Tests;
 import com.yourcompany.Pages.*;
 import com.yourcompany.TestRules.Retry;
 import com.yourcompany.Tests.SampleSauceTestBase;
+
 import org.junit.Test;
 import org.openqa.selenium.InvalidElementStateException;
 
@@ -18,9 +19,8 @@ import static org.junit.Assert.*;
 
 public class SampleSauceTextInputTest extends SampleSauceTestBase {
 
-    public SampleSauceTextInputTest(String os,
-                                    String version, String browser, String deviceName, String deviceOrientation) {
-            super(os, version, browser, deviceName, deviceOrientation);
+    public SampleSauceTextInputTest(String os, String version, String browser, String deviceName, String deviceOrientation, String platformVersion, String platformName) {
+            super(os, version, browser, deviceName, deviceOrientation, platformVersion, platformName);
     }
 
     /**

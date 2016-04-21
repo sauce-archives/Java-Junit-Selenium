@@ -18,9 +18,8 @@ import static org.junit.Assert.*;
 
 public class SampleSauceCheckBoxTest extends SampleSauceTestBase {
 
-    public SampleSauceCheckBoxTest(String os,
-                                     String version, String browser, String deviceName, String deviceOrientation) {
-        super(os, version, browser, deviceName, deviceOrientation);
+    public SampleSauceCheckBoxTest(String os, String version, String browser, String deviceName, String deviceOrientation, String platformVersion, String platformName) {
+        super(os, version, browser, deviceName, deviceOrientation, platformVersion, platformName);
     }
 
     /**
