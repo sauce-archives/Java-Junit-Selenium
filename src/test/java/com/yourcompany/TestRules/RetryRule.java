@@ -1,24 +1,18 @@
 package com.yourcompany.TestRules;
 
-
-import org.junit.rules.MethodRule;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
-import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by mehmetgerceker on 12/7/15.
  */
 public class RetryRule implements TestRule {
 
-    private AtomicInteger retryCount;
+    private final int retryCount;
 
     public RetryRule(int retries){
-        super();
-        this.retryCount = new AtomicInteger(retries);
+        this.retryCount = retries;
     }
 
     @Override
@@ -31,17 +25,16 @@ public class RetryRule implements TestRule {
                 Throwable caughtThrowable = null;
 
                 // implement retry logic here
-                while (retryCount.getAndDecrement() > 0) {
+                int i = retryCount;
+                while (i-- > 0) {
                     try {
                         base.evaluate();
                         return;
                     } catch (Throwable t) {
-                        if (retryCount.get() > 0 && description.getAnnotation(Retry.class)!= null) {
+                        if (i > 0 && description.getAnnotation(Retry.class)!= null) {
                             caughtThrowable = t;
                             System.err.println(description.getDisplayName() +
-                                    ": Failed, " +
-                                    retryCount.toString() +
-                                    "retries remain");
+                                    ": Failed, " + i + "retries remain");
                         } else {
                             throw caughtThrowable;
                         }
