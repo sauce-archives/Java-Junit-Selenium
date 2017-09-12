@@ -1,7 +1,9 @@
 package com.yourcompany.Tests;
 
 import com.saucelabs.common.SauceOnDemandAuthentication;
-
+import com.saucelabs.common.SauceOnDemandSessionIdProvider;
+import com.saucelabs.junit.ConcurrentParameterized;
+import com.saucelabs.junit.SauceOnDemandTestWatcher;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
@@ -10,13 +12,8 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.saucelabs.junit.ConcurrentParameterized;
-import com.saucelabs.junit.SauceOnDemandTestWatcher;
-
 import java.net.URL;
 import java.util.LinkedList;
-
-import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 
 
 
@@ -115,15 +112,12 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
         capabilities.setCapability("deviceName", deviceName);
         capabilities.setCapability("device-orientation", deviceOrientation);
         capabilities.setCapability(CapabilityType.PLATFORM, os);
+        capabilities.setCapability("build", System.getenv("SAUCE_BUILD_NAME"));
+
 
         String methodName = name.getMethodName();
         capabilities.setCapability("name", methodName);
 
-        //Getting the build name.
-        //Using the Jenkins ENV var. You can use your own. If it is not set test will run without a build id.
-        if (buildTag != null) {
-            capabilities.setCapability("build", buildTag);
-        }
         this.driver = new RemoteWebDriver(
                 new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
                 capabilities);
