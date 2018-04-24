@@ -9,9 +9,12 @@ import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 
 import java.net.URL;
 import java.util.LinkedList;
@@ -105,13 +108,42 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
      */
     @Before
     public void setUp() throws Exception {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        MutableCapabilities options = null;
 
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
-        capabilities.setCapability(CapabilityType.VERSION, version);
-        capabilities.setCapability(CapabilityType.PLATFORM, os);
+        switch(browser) {
+            case "safari": {
+                options = new SafariOptions();
+                break;
+            }
+            case "internet explorer": {
+                options = new InternetExplorerOptions();
+                break;
+            }
+            case "MicrosoftEdge": {
+                options = new EdgeOptions();
+                break;
+            }
+            case "firefox": {
+                options = new FirefoxOptions();
+                break;
+            }
+            case "chrome": {
+                options = new ChromeOptions();
+                break;
+            }
+
+            default: {
+                System.out.println("Browser not selected");
+                break;
+            }
+        }
+
+
+        options.setCapability("version", version);
+        options.setCapability("platform", os);
 
 		MutableCapabilities sauceCaps = new MutableCapabilities();
+		sauceCaps.merge(options);
         sauceCaps.setCapability("seleniumVersion", "3.11.0");
 
 
@@ -124,11 +156,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
             sauceCaps.setCapability("build", buildTag);
         }
 
-        capabilities.setCapability("sauce:options", sauceCaps);
+        options.setCapability("sauce:options", sauceCaps);
         
         this.driver = new RemoteWebDriver(
                 new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
-                capabilities);
+                options);
 
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
     }
