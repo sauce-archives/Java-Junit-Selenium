@@ -1,22 +1,23 @@
 package com.yourcompany.Tests;
 
 import com.saucelabs.common.SauceOnDemandAuthentication;
-
+import com.saucelabs.common.SauceOnDemandSessionIdProvider;
+import com.saucelabs.junit.ConcurrentParameterized;
+import com.saucelabs.junit.SauceOnDemandTestWatcher;
 import org.junit.*;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import com.saucelabs.junit.ConcurrentParameterized;
-import com.saucelabs.junit.SauceOnDemandTestWatcher;
+import org.openqa.selenium.safari.SafariOptions;
 
 import java.net.URL;
 import java.util.LinkedList;
-
-import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 
 
 
@@ -91,11 +92,10 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
 
-        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
-        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 10", "latest", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "latest", "firefox", null, null});
         browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
-        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
-        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"OS X 10.12", "11.0", "safari", null, null});
         return browsers;
     }
 
@@ -108,25 +108,59 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
      */
     @Before
     public void setUp() throws Exception {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        MutableCapabilities options = null;
 
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
-        capabilities.setCapability(CapabilityType.VERSION, version);
-        capabilities.setCapability("deviceName", deviceName);
-        capabilities.setCapability("device-orientation", deviceOrientation);
-        capabilities.setCapability(CapabilityType.PLATFORM, os);
+        switch(browser) {
+            case "safari": {
+                options = new SafariOptions();
+                break;
+            }
+            case "internet explorer": {
+                options = new InternetExplorerOptions();
+                break;
+            }
+            case "MicrosoftEdge": {
+                options = new EdgeOptions();
+                break;
+            }
+            case "firefox": {
+                options = new FirefoxOptions();
+                break;
+            }
+            case "chrome": {
+                options = new ChromeOptions();
+                break;
+            }
+
+            default: {
+                System.out.println("Browser not selected");
+                break;
+            }
+        }
+
+
+        options.setCapability("version", version);
+        options.setCapability("platform", os);
+
+		MutableCapabilities sauceCaps = new MutableCapabilities();
+		sauceCaps.merge(options);
+        sauceCaps.setCapability("seleniumVersion", "3.11.0");
+
 
         String methodName = name.getMethodName();
-        capabilities.setCapability("name", methodName);
+        sauceCaps.setCapability("name", methodName);
 
         //Getting the build name.
         //Using the Jenkins ENV var. You can use your own. If it is not set test will run without a build id.
         if (buildTag != null) {
-            capabilities.setCapability("build", buildTag);
+            sauceCaps.setCapability("build", buildTag);
         }
+
+        options.setCapability("sauce:options", sauceCaps);
+        
         this.driver = new RemoteWebDriver(
                 new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
-                capabilities);
+                options);
 
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
     }
