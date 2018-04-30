@@ -45,9 +45,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <parallel>both</parallel>
+                	<forkCount>3</forkCount>
+                	<reuseForks>true</reuseForks>
+                    <parallel>methods</parallel>
                     <threadCount>100</threadCount>
-
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                 </configuration>
                 <version>2.12.4</version>
