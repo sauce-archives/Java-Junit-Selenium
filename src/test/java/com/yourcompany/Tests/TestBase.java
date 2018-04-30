@@ -96,6 +96,32 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
         browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
         browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
         browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
+        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
+        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
+        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
+        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
+        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
+        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
+        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
+        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
+        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
+        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
+        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        
         return browsers;
     }
 
@@ -133,6 +159,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
     @After
     public void tearDown() throws Exception {
+    	Thread.sleep(30000);
         driver.quit();
     }
 
