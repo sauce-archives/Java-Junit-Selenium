@@ -50,26 +50,24 @@ public class W3CTestNG {
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 
         // condition particular capabilities as needed
+        options.setCapability("browserVersion", "latest");
         if (options instanceof SafariOptions){
-            options.setCapability("platform", "OS X 10.12");
+            options.setCapability("platformName", "OS X 10.12");
         } else if (options instanceof InternetExplorerOptions) {
-            options.setCapability("platform", "Windows 7");
+            options.setCapability("platformName", "Windows 7");
         } else {
-            options.setCapability("platform", "Windows 10");
+            options.setCapability("platformName", "Windows 10");
         }
 
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("version", "latest");
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
-
-        sauceOptions.setCapability("name", "W3CTest - basic");
+        sauceOptions.setCapability("name", "W3CTestNG - basic2");
         sauceOptions.setCapability("build", "W3C Experiment");
 
         options.setCapability("sauce:options", sauceOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + "@ondemand.saucelabs.com/wd/hub"), options);
 
-        System.out.print(((RemoteWebDriver) driver).getCapabilities().getBrowserName());
         driver.get("http://a.testaddressbook.com/");
         WebDriverWait wait = new WebDriverWait(driver, 30);
 
