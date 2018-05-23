@@ -2,6 +2,7 @@ package com.yourcompany.Tests;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -18,7 +19,7 @@ public class W3CTestSingle {
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
-        FirefoxOptions options = new FirefoxOptions();
+        ChromeOptions options = new ChromeOptions();
 
         String username = System.getenv("SAUCE_USERNAME");
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
@@ -26,10 +27,13 @@ public class W3CTestSingle {
         // condition particular capabilities as needed
         options.setCapability("browserVersion", "latest");
         options.setCapability("platformName", "Windows 10");
+        MutableCapabilities goog = new MutableCapabilities();
+        goog.setCapability("w3c", true);
+        options.setCapability("goog:chromeOptions" , goog);
 
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
-        sauceOptions.setCapability("name", "firefoxTitle");
+        sauceOptions.setCapability("name", "googleCase");
         sauceOptions.setCapability("build", "W3C Experiment");
 
         options.setCapability("sauce:options", sauceOptions);
