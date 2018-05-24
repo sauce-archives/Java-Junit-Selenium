@@ -1,36 +1,33 @@
 package com.yourcompany.Tests;
 
+import com.yourcompany.Pages.GuineaPigPage;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class W3CTestSingle {
+import static org.junit.Assert.assertFalse;
+
+public class W3CSingleTest {
 
     public WebDriver driver;
 
-    @BeforeMethod
+    @Before
     public void setUp() throws MalformedURLException {
         // could also be EdgeOptions or SafariOptions
         MutableCapabilities options = new FirefoxOptions();
         String username = System.getenv("SAUCE_USERNAME");
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 
-        // condition particular capabilities as needed
         options.setCapability("browserVersion", "latest");
-        // if Safari then choose OS X 10
         options.setCapability("platformName", "Windows 10");
         MutableCapabilities goog = new MutableCapabilities();
-        goog.setCapability("w3c", true);
-        options.setCapability("goog:chromeOptions" , goog);
 
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
@@ -43,16 +40,17 @@ public class W3CTestSingle {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + "@ondemand.saucelabs.com/wd/hub"), options);
     }
 
-    @AfterMethod
+    @After
     public void teardown(){
         driver.quit();
     }
 
     @Test
-    public void basic() {
-        driver.get("http://a.testaddressbook.com/");
-        String expected = driver.getTitle();
+    public void verifyLinkTest() {
+        GuineaPigPage page = GuineaPigPage.visitPage(driver);
 
-        Assert.assertTrue(expected.contains("Address Book"));
+        page.followLink();
+
+        assertFalse(page.isOnPage());
     }
 }

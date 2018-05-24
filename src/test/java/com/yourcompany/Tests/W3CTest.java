@@ -29,10 +29,14 @@ public class W3CTest {
 
     private WebDriver driver;
 
+    /**
+     * Collection of data parametrizes tests, in this case
+     * using W3C compliant browsers (does not include Chrome here)
+     * @return
+     */
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                //{new ChromeOptions()},
                 {new FirefoxOptions()},
                 {new EdgeOptions()},
                 {new SafariOptions()}
