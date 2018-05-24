@@ -1,6 +1,7 @@
 package com.yourcompany.Tests;
 
 import com.saucelabs.junit.Parallelized;
+import com.yourcompany.Pages.GuineaPigPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,6 +25,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
+
+import static org.junit.Assert.assertFalse;
 
 @RunWith(Parallelized.class)
 public class W3CTest {
@@ -52,20 +56,24 @@ public class W3CTest {
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 
         // condition particular capabilities as needed
+        options.setCapability("browserVersion", "latest");
         if (options instanceof SafariOptions){
             options.setCapability("platformName", "OS X 10.12");
+        } else if (options instanceof InternetExplorerOptions) {
+            options.setCapability("platformName", "Windows 7");
         } else {
             options.setCapability("platformName", "Windows 10");
         }
 
-        options.setCapability("browserVersion", "latest");
-        options.setCapability("seleniumVersion", "3.11.0");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("seleniumVersion", "3.11.0");
+        sauceOptions.setCapability("name", "W3C");
+        sauceOptions.setCapability("build", "JUnit Case - Follow Link Test");
 
-        //MutableCapabilities sauceCaps = new MutableCapabilities();
-        options.setCapability("name", "W3CTest - basic");
-        options.setCapability("build", "W3C Experiment");
+        options.setCapability("sauce:options", sauceOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + "@ondemand.saucelabs.com/wd/hub"), options);
+
     }
 
     @After
@@ -74,16 +82,11 @@ public class W3CTest {
     }
 
     @Test
-    public void basic(){
-        driver.get("http://a.testaddressbook.com/");
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+    public void followLinkTest(){
+        GuineaPigPage page = GuineaPigPage.visitPage(driver);
 
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("sign-in"))));
-        driver.findElement(By.id("sign-in")).click();
+        page.followLink();
 
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("clearance"))));
-        String expected = driver.findElement(By.id("clearance")).getText();
-
-        Assert.assertTrue(expected.contains("Sign"));
+        assertFalse(page.isOnPage());
     }
 }
