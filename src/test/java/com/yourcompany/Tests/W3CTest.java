@@ -32,7 +32,7 @@ public class W3CTest {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {new ChromeOptions()},
+                //{new ChromeOptions()},
                 {new FirefoxOptions()},
                 {new EdgeOptions()},
                 {new SafariOptions()}
@@ -49,12 +49,12 @@ public class W3CTest {
 
         // condition particular capabilities as needed
         if (options instanceof SafariOptions){
-            options.setCapability("platform", "OS X 10.12");
+            options.setCapability("platformName", "OS X 10.12");
         } else {
-            options.setCapability("platform", "Windows 10");
+            options.setCapability("platformName", "Windows 10");
         }
 
-        options.setCapability("version", "latest");
+        options.setCapability("browserVersion", "latest");
         options.setCapability("seleniumVersion", "3.11.0");
 
         //MutableCapabilities sauceCaps = new MutableCapabilities();

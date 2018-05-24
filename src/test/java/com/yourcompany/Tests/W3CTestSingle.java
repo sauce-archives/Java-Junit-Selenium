@@ -19,13 +19,14 @@ public class W3CTestSingle {
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
-        ChromeOptions options = new ChromeOptions();
-
+        // could also be EdgeOptions or SafariOptions
+        MutableCapabilities options = new FirefoxOptions();
         String username = System.getenv("SAUCE_USERNAME");
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 
         // condition particular capabilities as needed
         options.setCapability("browserVersion", "latest");
+        // if Safari then choose OS X 10
         options.setCapability("platformName", "Windows 10");
         MutableCapabilities goog = new MutableCapabilities();
         goog.setCapability("w3c", true);
@@ -33,7 +34,8 @@ public class W3CTestSingle {
 
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
-        sauceOptions.setCapability("name", "googleCase");
+
+        sauceOptions.setCapability("name", "W3C Firefox");
         sauceOptions.setCapability("build", "W3C Experiment");
 
         options.setCapability("sauce:options", sauceOptions);

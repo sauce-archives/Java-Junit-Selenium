@@ -62,21 +62,15 @@ public class W3CTestNG {
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
         sauceOptions.setCapability("name", "W3CTestNG - basic2");
-        sauceOptions.setCapability("build", "W3C Experiment");
+        sauceOptions.setCapability("build", "W3C II");
 
         options.setCapability("sauce:options", sauceOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + "@ondemand.saucelabs.com/wd/hub"), options);
 
         driver.get("http://a.testaddressbook.com/");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        String title = driver.getTitle();
 
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("sign-in"))));
-        driver.findElement(By.id("sign-in")).click();
-
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("clearance"))));
-        String expected = driver.findElement(By.id("clearance")).getText();
-
-        Assert.assertTrue(expected.contains("Sign"));
+        Assert.assertTrue(title.contains("Address"));
     }
 }
