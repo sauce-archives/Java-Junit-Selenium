@@ -41,14 +41,22 @@ public class W3CTest {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {new FirefoxOptions()},
-                {new EdgeOptions()},
-                {new SafariOptions()}
+                {new FirefoxOptions(), "latest", "Windows 10"},
+                {new FirefoxOptions(), "58.0", "OS X 10.12"},
+                {new EdgeOptions(), "latest", "Windows 10"},
+                {new SafariOptions(), "latest", "OS X 10.12"},
+                {new InternetExplorerOptions(), "latest", "Windows 7"},
         });
     }
 
     @Parameter
     public MutableCapabilities options;
+
+    @Parameter(1)
+    public String browserVersion;
+
+    @Parameter(2)
+    public String platformName;
 
     @Before
     public void setup() throws MalformedURLException {
@@ -56,14 +64,8 @@ public class W3CTest {
         String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 
         // condition particular capabilities as needed
-        options.setCapability("browserVersion", "latest");
-        if (options instanceof SafariOptions){
-            options.setCapability("platformName", "OS X 10.12");
-        } else if (options instanceof InternetExplorerOptions) {
-            options.setCapability("platformName", "Windows 7");
-        } else {
-            options.setCapability("platformName", "Windows 10");
-        }
+        options.setCapability("browserVersion", browserVersion);
+        options.setCapability("platformName", platformName);
 
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("seleniumVersion", "3.11.0");
