@@ -13,34 +13,31 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.saucelabs.junit.ConcurrentParameterized;
 import com.saucelabs.junit.SauceOnDemandTestWatcher;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedList;
 
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
-
-
 
 /**
  * Demonstrates how to write a JUnit test that runs tests against Sauce Labs using multiple browsers in parallel.
  * <p/>
  * The test also includes the {@link SauceOnDemandTestWatcher} which will invoke the Sauce REST API to mark
  * the test as passed or failed.
- *
- * @author Neil Manvar
  */
 @Ignore
 @RunWith(ConcurrentParameterized.class)
 public class TestBase implements SauceOnDemandSessionIdProvider {
+    private static String username = System.getenv("SAUCE_USERNAME");
+    private static String accesskey = System.getenv("SAUCE_ACCESS_KEY");
+    private static String seleniumURI;
+    private static String buildTag;
 
-    public static String username = System.getenv("SAUCE_USERNAME");
-    public static String accesskey = System.getenv("SAUCE_ACCESS_KEY");
-    public static String seleniumURI;
-    public static String buildTag;
     /**
      * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the authentication
      * supplied by environment variables or from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
      */
-    public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication(username, accesskey);
+    private SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication(username, accesskey);
 
     /**
      * JUnit Rule which will mark the Sauce Job as passed/failed when the test succeeds or fails.
@@ -55,28 +52,27 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
         }
     };
 
-    protected String browser;
-    protected String os;
-    protected String version;
-    protected String deviceName;
-    protected String deviceOrientation;
-    protected String sessionId;
+    private String browser;
+    private String os;
+    private String version;
+    private String deviceName;
+    private String deviceOrientation;
+    private String sessionId;
     protected WebDriver driver;
 
     /**
      * Constructs a new instance of the test.  The constructor requires three string parameters, which represent the operating
      * system, version and browser to be used when launching a Sauce VM.  The order of the parameters should be the same
      * as that of the elements within the {@link #browsersStrings()} method.
-     * @param os
+     * @param platform
      * @param version
      * @param browser
      * @param deviceName
      * @param deviceOrientation
      */
-
-    public TestBase(String os, String version, String browser, String deviceName, String deviceOrientation) {
+    public TestBase(String platform, String version, String browser, String deviceName, String deviceOrientation) {
         super();
-        this.os = os;
+        this.os = platform;
         this.version = version;
         this.browser = browser;
         this.deviceName = deviceName;
@@ -88,8 +84,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
      * in the String array are used as part of the invocation of the test constructor
      */
     @ConcurrentParameterized.Parameters
-    public static LinkedList browsersStrings() {
-        LinkedList browsers = new LinkedList();
+    public static LinkedList<String[]> browsersStrings() {
+        LinkedList<String[]> browsers = new LinkedList<>();
 
         browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
         browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
@@ -103,11 +99,9 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
      * Constructs a new {@link RemoteWebDriver} instance which is configured to use the capabilities defined by the {@link #browser},
      * {@link #version} and {@link #os} instance variables, and which is configured to run against ondemand.saucelabs.com, using
      * the username and access key populated by the {@link #authentication} instance.
-     *
-     * @throws Exception if an error occurs during the creation of the {@link RemoteWebDriver} instance.
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
@@ -119,20 +113,23 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
         String methodName = name.getMethodName();
         capabilities.setCapability("name", methodName);
 
-        //Getting the build name.
-        //Using the Jenkins ENV var. You can use your own. If it is not set test will run without a build id.
+        //Getting the build name
+        //Use the Jenkins ENV var. You can use your own. If it is not set test will run without a build id
         if (buildTag != null) {
             capabilities.setCapability("build", buildTag);
         }
-        this.driver = new RemoteWebDriver(
-                new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
-                capabilities);
+
+        try {
+            this.driver = new RemoteWebDriver(new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("URL was malformed: " + "https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub");
+        }
 
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         driver.quit();
     }
 

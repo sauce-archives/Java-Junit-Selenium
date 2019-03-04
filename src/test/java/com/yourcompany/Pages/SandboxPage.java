@@ -7,8 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class GuineaPigPage {
-
+public class SandboxPage {
     @FindBy(linkText = "i am a link")
     private WebElement theActiveLink;
 
@@ -21,21 +20,15 @@ public class GuineaPigPage {
     @FindBy(id = "submit")
     private WebElement submitButton;
 
-    public WebDriver driver;
-    public static String url = "https://saucelabs-sample-test-frameworks.github.io/training-test-page";
+    private WebDriver driver;
 
-    public static GuineaPigPage visitPage(WebDriver driver) {
-        GuineaPigPage page = new GuineaPigPage(driver);
-        page.visitPage();
-        return page;
-    }
-
-    public GuineaPigPage(WebDriver driver) {
+    public SandboxPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void visitPage() {
+        String url = "https://saucelabs-sample-test-frameworks.github.io/training-test-page";
         this.driver.get(url);
     }
 
@@ -58,7 +51,7 @@ public class GuineaPigPage {
 
     public boolean isOnPage() {
         String title = "I am a page title - Sauce Labs";
-        return this.driver.getTitle() == title;
+        return this.driver.getTitle().equals(title);
     }
 
 }

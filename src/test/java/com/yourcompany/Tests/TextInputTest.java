@@ -23,8 +23,8 @@ public class TextInputTest extends TestBase {
     @Test
     public void verifyCommentInputTest() throws InvalidElementStateException {
         String commentInputText = UUID.randomUUID().toString();
+        SandboxPage page = new SandboxPage(driver);
 
-        GuineaPigPage page = GuineaPigPage.visitPage(driver);
         page.visitPage();
         page.submitComment(commentInputText);
 
