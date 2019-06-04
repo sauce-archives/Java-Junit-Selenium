@@ -12,7 +12,7 @@ public class InvalidLoginTest extends TestBase {
     }
 
     @Test
-    public void standardUser(){
+    public void blankCredentials(){
         driver.get("http://www.saucedemo.com");
 
         driver.findElement(By.id("user-name")).sendKeys("");
