@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.saucelabs.junit.ConcurrentParameterized;
 import com.saucelabs.junit.SauceOnDemandTestWatcher;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedList;
 
@@ -91,11 +92,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
 
-        browsers.add(new String[]{"Windows 10", "14.14393", "MicrosoftEdge", null, null});
-        browsers.add(new String[]{"Windows 10", "49.0", "firefox", null, null});
+        browsers.add(new String[]{"Windows 10", "16.16299", "MicrosoftEdge", null, null});
         browsers.add(new String[]{"Windows 7", "11.0", "internet explorer", null, null});
-        browsers.add(new String[]{"OS X 10.11", "10.0", "safari", null, null});
-        browsers.add(new String[]{"OS X 10.10", "54.0", "chrome", null, null});
+        browsers.add(new String[]{"Windows 10", "latest", "firefox", null, null});
+        browsers.add(new String[]{"MacOS 10.13", "12.1", "safari", null, null});
+        browsers.add(new String[]{"MacOS 10.12", "latest", "chrome", null, null});
         return browsers;
     }
 
@@ -104,10 +105,10 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
      * {@link #version} and {@link #os} instance variables, and which is configured to run against ondemand.saucelabs.com, using
      * the username and access key populated by the {@link #authentication} instance.
      *
-     * @throws Exception if an error occurs during the creation of the {@link RemoteWebDriver} instance.
+     * @throws MalformedURLException if an error occurs during the creation of the {@link RemoteWebDriver} instance.
      */
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
@@ -121,8 +122,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
         //Getting the build name.
         //Using the Jenkins ENV var. You can use your own. If it is not set test will run without a build id.
-        if (buildTag != null) {
-            capabilities.setCapability("build", buildTag);
+        if (buildTag == null) {
+            capabilities.setCapability("build", "joshs-build");
         }
         this.driver = new RemoteWebDriver(
                 new URL("https://" + username+ ":" + accesskey + seleniumURI +"/wd/hub"),
