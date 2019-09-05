@@ -148,9 +148,9 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
     @BeforeClass
     public static void setupClass() {
-        endpoints.put("https://saucelabs.com", "@ondemand.saucelabs.com:443");
-        endpoints.put("https://eu-central-1.saucelabs.com", "@ondemand.eu-central-1.saucelabs.com:443");
-        endpoints.put("https://us-east-1.saucelabs.com", "@ondemand.us-east-1.saucelabs.com:443");
+        endpoints.put("https://saucelabs.com/", "@ondemand.saucelabs.com:443");
+        endpoints.put("https://eu-central-1.saucelabs.com/", "@ondemand.eu-central-1.saucelabs.com:443");
+        endpoints.put("https://us-east-1.saucelabs.com/", "@ondemand.us-east-1.saucelabs.com:443");
 
         String sauceRestEndpoint = System.getenv("SAUCE_REST_ENDPOINT");
         System.out.printf("SAUCE_REST_ENDPOINT: %s %n", sauceRestEndpoint);
