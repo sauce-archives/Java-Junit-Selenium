@@ -153,11 +153,14 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
         endpoints.put("https://us-east-1.saucelabs.com", "@ondemand.us-east-1.saucelabs.com:443");
 
         String sauceRestEndpoint = System.getenv("SAUCE_REST_ENDPOINT");
+        System.out.printf("SAUCE_REST_ENDPOINT: %s %n", sauceRestEndpoint);
 
         if (endpoints.containsKey(sauceRestEndpoint)) {
+            System.out.printf("Setting OnDemand endpoint to: %s %n", endpoints.get(sauceRestEndpoint));
             seleniumURI = endpoints.get(sauceRestEndpoint);
         }
         else { // set us-west-1 as default
+            System.out.println("Setting OnDemand endpoint to default.");
             seleniumURI = "@ondemand.saucelabs.com:443";
         }
 
