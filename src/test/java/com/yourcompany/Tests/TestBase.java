@@ -14,6 +14,7 @@ import com.saucelabs.junit.ConcurrentParameterized;
 import com.saucelabs.junit.SauceOnDemandTestWatcher;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
@@ -36,6 +37,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
     public static String accesskey = System.getenv("SAUCE_ACCESS_KEY");
     public static String seleniumURI;
     public static String buildTag;
+    public static HashMap<String, String> endpoints = new HashMap<>();
     /**
      * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied user name/access key.  To use the authentication
      * supplied by environment variables or from an external file, use the no-arg {@link SauceOnDemandAuthentication} constructor.
@@ -146,8 +148,19 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
     @BeforeClass
     public static void setupClass() {
-        //get the uri to send the commands to.
-        seleniumURI = "@ondemand.saucelabs.com:443";
+        endpoints.put("https://saucelabs.com", "@ondemand.saucelabs.com:443");
+        endpoints.put("https://eu-central-1.saucelabs.com", "@ondemand.eu-central-1.saucelabs.com:443");
+        endpoints.put("https://us-east-1.saucelabs.com", "@ondemand.us-east-1.saucelabs.com:443");
+
+        String sauceRestEndpoint = System.getenv("SAUCE_REST_ENDPOINT");
+
+        if (endpoints.containsKey(sauceRestEndpoint)) {
+            seleniumURI = endpoints.get(sauceRestEndpoint);
+        }
+        else { // set us-west-1 as default
+            seleniumURI = "@ondemand.saucelabs.com:443";
+        }
+
         //If available add build tag. When running under Jenkins BUILD_TAG is automatically set.
         //You can set this manually on manual runs.
         buildTag = System.getenv("BUILD_TAG");
